@@ -15,9 +15,22 @@
         </div>
         <h2 class="article-title ">{{ object.title }}
         </h2>
+
         <p class="article-content ">{{ object.content }}</p>
+
+        {% if object.document %}
+        <hr>
+        <h5>Image</h5>
         <img class="img-responsive" src="{{object.image.url}}" alt="Article Picture">
 
+        {%endif%}
+        {% if object.document %}
+        <hr>
+        <h5>File Attachment</h5>
+        <div>
+            <a href="{{object.document.url}}">Download</a>
+        </div>
+        {%endif%}
     </div>
 </article>
 {% endblock content %}
