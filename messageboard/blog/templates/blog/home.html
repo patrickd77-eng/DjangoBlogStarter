@@ -12,12 +12,10 @@
         </div>
         <h2><a class="article-title " href="{% url 'post-detail' post.id %} ">{{ post.title }}</a></h2>
         <p class="article-content ">{{ post.content }}</p>
-
         {% if post.image %}
         <hr>
         <h5>Image</h5>
         <img class="img-responsive" src="{{post.image.url}}" alt="Article Picture">
-
         {%endif%}
         {% if post.document %}
         <hr>
@@ -25,7 +23,7 @@
         <div>
             <a href="{{post.document.url}}">Download</a>
         </div>
-        {%endif%}
+        {% endif %}
     </div>
 </article>
 {% else %}
@@ -33,8 +31,31 @@
     <hr>
     <div class="media-body">
         <h2>No Access</h2>
-        <p class="article-content">You need to sign in to view this info.</p>
+        <p class="article-content">You need to sign in to view posts.</p>
     </div>
 </article>
 {% endif %}
-{% endfor %} {% endblock content %}
+
+{% endfor %}
+
+{% if is_paginated %}
+{% if page_obj.has_previous %}
+<a class="btn btn-outline-info mb-2" href="?page=1">First Page</a>
+<a class="btn btn-outline-info mb-2" href="?page={{ page_obj.previous_page_number }}">Previous Page</a>
+{% endif %}
+{% for num in page_obj.paginator.page_range %}
+{% if page_obj.number == num %}
+<a class="btn btn-info mb-2" href="?page={{ num }}">{{ num }}</a>
+{% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+<a class="btn btn-outline-info mb-2" href="?page={{ num }}">{{ num }}</a>
+{%endif%}
+{% endfor %}
+
+{% if page_obj.has_next %}
+<a class="btn btn-outline-info mb-2" href="?page={{ page_obj.next_page_number }}">Next</a>
+<a class="btn btn-outline-info mb-2" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+{% endif %}
+
+{% endif %}
+
+{% endblock content %}
