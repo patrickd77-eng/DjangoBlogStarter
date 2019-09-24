@@ -35,9 +35,7 @@
                         </div>
                         {% else %}
                         <div>
-                            <h5 style="color:white;padding-top:5px;padding-right:10px;">Access</h5>
                             <a class="btn btn-info btn-sm mt-1 mb-1 mr-1" href="{% url 'login' %}">Login</a>
-                            <a class="btn btn-info btn-sm mt-1 mb-1 mr-1" href="{% url 'register' %}">Register</a>
                         </div>
                         {% endif %}
 
@@ -62,7 +60,7 @@
                             src="https://i1.wp.com/screwfixmedia.co.uk/wp-content/uploads/dlm_uploads/2016/05/Screwfix_border_RGB_300dpi.jpg?zoom=2.625&fit=3527%2C1027&ssl=1"
                             alt="SF LOGO">
                         {% if user.is_authenticated %}
-                        <p>Welcome, {{ user.username }}.</p>
+                        <p>Welcome, <strong>{{ user.username }}.</strong></p>
 
                         {%endif%}
                         <div>
@@ -94,11 +92,13 @@
             </div>
         </div>
     </main>
+    {% if user.is_authenticated %}
     <footer class="page-footer font-small blue pt-4">
         <div style="color:White" class="footer-copyright text-center py-3">© {{ now.year }} Copyright:
             <a href="https://www.patrickdavis.co.uk">Patrick Davis</a>
         </div>
     </footer>
+    {% endif %}
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>
