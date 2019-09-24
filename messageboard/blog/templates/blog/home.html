@@ -1,6 +1,6 @@
-{% extends "blog/base.html" %} 
+{% extends "blog/base.html" %}
 {% block content %}
- {% for post in posts %}
+{% for post in posts %}
 {% if user.is_authenticated %}
 <article class="media content-section">
     <img draggable="false" class="rounded-circle article-img" src="{{post.author.profile.image.url}}"
@@ -12,6 +12,8 @@
         </div>
         <h2><a class="article-title " href="{% url 'post-detail' post.id %} ">{{ post.title }}</a></h2>
         <p class="article-content ">{{ post.content }}</p>
+        <img class="img-responsive" src="{{post.image.url}}" alt="Article Picture">
+
     </div>
 </article>
 {% else %}
@@ -19,7 +21,7 @@
     <hr>
     <div class="media-body">
         <h2>No Access</h2>
-        <p class="article-content ">You need to sign in to view this info.</p>
+        <p class="article-content">You need to sign in to view this info.</p>
     </div>
 </article>
 {% endif %}
