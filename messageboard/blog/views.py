@@ -2,7 +2,10 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .models import Post
+from .models import Post, Comment
+from .forms import CommentForm
+from django.urls import reverse
+from django.http import HttpResponseRedirect
 from datetime import datetime
 
 def home(request):
@@ -71,3 +74,15 @@ def about(request):
     }
     return render(request, 'blog/about.html', context)
 
+def add_comment_to_post(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.save()          
+            return HttpResponseRedirect(reverse('post-detail', kwargs={'pk':pk}))
+    else:
+        form = CommentForm()
+    return render(request, 'blog/add_comment_to_post.html', {'form': form})

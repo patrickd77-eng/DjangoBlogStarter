@@ -25,6 +25,7 @@
             </div>
             {% endif %}
         </div>
+        <a href="{% url 'post-detail' pk=post.pk %}">Comments: {{ post.comments.count }}</a>
     </article>
     {% endfor %}
    
@@ -53,7 +54,7 @@
     <div class="media-body">
         <h2>No Access</h2>
         <p class="article-content">You need to sign in to view posts.</p>
-        <a href="{% url 'login' %}">Sign In Here</a>
+        <a class="btn btn-info" href="{% url 'login' %}">Sign In</a>
     </div>
 </article>
 {% endif %}

@@ -1,5 +1,6 @@
 {% extends "blog/base.html" %}
 {%block content%}
+{% if user.is_authenticated %}
 <div class="media content-section">
     <h1 class="article-title">About this app</h1>
     <h3>Overview</h3>
@@ -30,4 +31,5 @@
     <div><small>Copyright - <a href="https://www.patrickdavis.co.uk">Patrick Jonathan Davis</a> {{ now.year }}</small>
     </div>
 </div>
+{%endif%}
 {%endblock content%}
