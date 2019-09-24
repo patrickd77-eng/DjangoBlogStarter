@@ -4,7 +4,7 @@
 {% for post in posts %}
 {% if user.is_authenticated %}
 <article class="media content-section">
-    <img draggable="false" class="rounded-circle article-img" src="{{post.author.profile.image.url}}"
+    <img draggable="false" class="rounded-circle img-responsive article-img" src="{{post.author.profile.image.url}}"
         alt="Author Picture">
     <div class="media-body">
         <div class="article-metadata ">

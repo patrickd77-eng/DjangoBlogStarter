@@ -55,45 +55,48 @@
                 {% block content %}{% endblock %}
             </div>
             <div class="col-md-4">
-                <div class="content-section">
-                    <img height="30"
-                        src="https://i1.wp.com/screwfixmedia.co.uk/wp-content/uploads/dlm_uploads/2016/05/Screwfix_border_RGB_300dpi.jpg?zoom=2.625&fit=3527%2C1027&ssl=1"
-                        alt="SF LOGO">
-                        {% if user.is_authenticated %}
-                    <p>Welcome, {{ user.username }}.</p>
-                    {%endif%}
-                    <div>
-                        {% if user.is_authenticated %}
-                        <div>
-                            <h5>Options</h5>
-                        </div>
-                        <div>
-                            <a class="btn btn-info mb-1" href="{% url 'profile' %}">Profile Settings</a>
-                        </div>
-                        {%else%}
-                        <div>
-                            <p>You are seeing this because either you aren't logged in, or you have not yet been
-                                approved.</p>
-                        </div>
-                        {%endif%}
-                        {% if user.is_superuser %}
-                        <h5>Admin</h5>
-                        <div>
-                            <a class="btn btn-info btn mb-1" href="{% url 'board-admin' %}">Admin Panel</a>
+                <div style="text-align: center;">
+                    <div class="content-section">
 
-                            <a class="btn btn-success btn mb-1" href="{% url 'post-create' %}">New Post</a>
+                        <img height="30"
+                            src="https://i1.wp.com/screwfixmedia.co.uk/wp-content/uploads/dlm_uploads/2016/05/Screwfix_border_RGB_300dpi.jpg?zoom=2.625&fit=3527%2C1027&ssl=1"
+                            alt="SF LOGO">
+                        {% if user.is_authenticated %}
+                        <p>Welcome, {{ user.username }}.</p>
+
+                        {%endif%}
+                        <div>
+                            {% if user.is_authenticated %}
+                            <div>
+                                <h5>Options</h5>
+                            </div>
+                            <div>
+                                <a class="btn btn-info mb-1" href="{% url 'profile' %}">Profile Settings</a>
+                            </div>
+                            {%else%}
+                            <div>
+                                <p>You are seeing this because either you aren't logged in, or you have not yet been
+                                    approved.</p>
+                            </div>
+                            {%endif%}
+                            {% if user.is_superuser %}
+                            <h5>Admin</h5>
+                            <div>
+                                <a class="btn btn-info btn mb-1" href="{% url 'board-admin' %}">Admin Panel</a>
+
+                                <a class="btn btn-success btn mb-1" href="{% url 'post-create' %}">New Post</a>
+                            </div>
+                            {% endif %}
+                            </p>
                         </div>
-                        {% endif %}
-                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </main>
-    <!-- Footer -->
     <footer class="page-footer font-small blue pt-4">
         <div style="color:White" class="footer-copyright text-center py-3">© {{ now.year }} Copyright:
-            <a  href="https://www.patrickdavis.co.uk">Patrick Davis</a>
+            <a href="https://www.patrickdavis.co.uk">Patrick Davis</a>
         </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
