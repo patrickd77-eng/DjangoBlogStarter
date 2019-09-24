@@ -1,30 +1,33 @@
 {% extends "blog/base.html" %}
 {%block content%}
-<h1>About this app</h1>
-<h3>Overview</h3>
-<hr>
-<p>This application was developed by <a href="https://www.patrickdavis.co.uk">Patrick Davis</a> as a dissertation
-    project during his final year at uni (2019-2020).</p>
-<p>It is designed to be a place where mangement can upload newly created/updated rota images, company announcements and
-    pretty much anything else. Staff members can log in
-    at any time to view this information.</p>
-<p>Staff can also comment on posts and ask questions and also raise possible shift swap queries.</p>
-<p>To contact the author of this web app,<a href="mailto:patrick_Davis97@hotmail.co.uk?Subject=Screwfix App Query">
-        please send an email.</a></p>
-
-<h3>User Roles</h3>
-<hr>
-<p><b>Users can:</b> Log in, view posts, edit their profile.</p>
-<p><b>Superusers (management) can:</b> Manage users, create posts, access the admin panel and the above.</p>
-
-<div>
-    <h4>Further info</h4>
+<div class="content-section">
+    <h1>About this app</h1>
+    <h3>Overview</h3>
     <hr>
-    <small>Using Python 3.7.x and Django 2.x</small>
-</div>
-<div>
-    <small>Version 1.0</small>
-</div>
-<div><small>Copyright - <a href="https://www.patrickdavis.co.uk">Patrick Jonathan Davis</a> {{ now.year }}</small></div>
+    <p>This application was developed by <a href="https://www.patrickdavis.co.uk">Patrick Davis</a> as a dissertation
+        project during his final year at uni (2019-2020).</p>
+    <p>It is designed to be a place where mangement can upload newly created/updated rota images, company announcements
+        and
+        pretty much anything else. Staff members can log in
+        at any time to view this information.</p>
+    <p>Staff can also comment on posts and ask questions and also raise possible shift swap queries.</p>
+    <p>To contact the author of this web app,<a href="mailto:patrick_Davis97@hotmail.co.uk?Subject=Screwfix App Query">
+            please send an email.</a></p>
 
+    <h3>User Roles</h3>
+    <hr>
+    <p><b>Users can:</b> Log in, view posts, edit their profile.</p>
+    <p><b>Superusers (management) can:</b> Manage users, create posts, access the admin panel and the above.</p>
+
+    <div>
+        <h4>Further info</h4>
+        <hr>
+        <small>Using Python 3.7.x and Django 2.x</small>
+    </div>
+    <div>
+        <small>Version 1.0</small>
+    </div>
+    <div><small>Copyright - <a href="https://www.patrickdavis.co.uk">Patrick Jonathan Davis</a> {{ now.year }}</small>
+    </div>
+</div>
 {%endblock content%}

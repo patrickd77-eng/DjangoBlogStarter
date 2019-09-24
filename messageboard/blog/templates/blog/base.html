@@ -18,23 +18,20 @@
     <header class="site-header">
         <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
             <div class="container">
-                    <a class="navbar-brand mr-4" href="/">SF Board</a>
+                <a class="navbar-brand mr-4" href="/">Poole Parkstone Board</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
                     aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarToggle">
                     <div class="navbar-nav mr-auto">
-                        <div>
-                            <h5 style="color:white;padding-top:5px;padding-right:10px;">Pages</h5>
-                        </div>
                         <a class="nav-item nav-link" href="{% url 'board-home' %}">Home</a>
                         <a class="nav-item nav-link" href="{% url 'board-about' %}">About</a>
                     </div>
                     <div class="navbar-nav">
                         {% if user.is_authenticated %}
                         <div>
-                      <a class="btn btn-secondary btn-sm mt-1 mb-1 mr-1" href="{% url 'logout' %}">Logout</a>
+                            <a class="btn btn-secondary btn-sm mt-1 mb-1 mr-1" href="{% url 'logout' %}">Logout</a>
                         </div>
                         {% else %}
                         <div>
@@ -62,8 +59,9 @@
                     <img height="30"
                         src="https://i1.wp.com/screwfixmedia.co.uk/wp-content/uploads/dlm_uploads/2016/05/Screwfix_border_RGB_300dpi.jpg?zoom=2.625&fit=3527%2C1027&ssl=1"
                         alt="SF LOGO">
-                    <h4>Poole Parkstone</h4>
+                        {% if user.is_authenticated %}
                     <p>Welcome, {{ user.username }}.</p>
+                    {%endif%}
                     <div>
                         {% if user.is_authenticated %}
                         <div>
@@ -74,14 +72,15 @@
                         </div>
                         {%else%}
                         <div>
-                            <p>You are seeing this because either you aren't logged in, or you have not yet been approved.</p>
+                            <p>You are seeing this because either you aren't logged in, or you have not yet been
+                                approved.</p>
                         </div>
                         {%endif%}
                         {% if user.is_superuser %}
                         <h5>Admin</h5>
                         <div>
                             <a class="btn btn-info btn mb-1" href="{% url 'board-admin' %}">Admin Panel</a>
-                        
+
                             <a class="btn btn-success btn mb-1" href="{% url 'post-create' %}">New Post</a>
                         </div>
                         {% endif %}
@@ -91,15 +90,21 @@
             </div>
         </div>
     </main>
+    <!-- Footer -->
+    <footer class="page-footer font-small blue pt-4">
+        <div style="color:White" class="footer-copyright text-center py-3">© {{ now.year }} Copyright:
+            <a  href="https://www.patrickdavis.co.uk">Patrick Davis</a>
+        </div>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>
