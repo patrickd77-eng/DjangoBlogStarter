@@ -13,4 +13,5 @@ urlpatterns = [
     path('about/', views.about, name='board-about'),
     path('admin/', views.home, name='board-admin'),
     path('post/<int:pk>/comment/', views.add_comment_to_post, name='add_comment_to_post'),
+    
 ]

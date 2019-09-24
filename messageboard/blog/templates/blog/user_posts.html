@@ -26,6 +26,7 @@
         </div>
         {% endif %}
     </div>
+    <a href="{% url 'post-detail' pk=post.pk %}">Comments: {{ post.comments.count }}</a>
 </article>
 {% else %}
 <article>
