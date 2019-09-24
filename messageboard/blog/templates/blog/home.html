@@ -1,13 +1,26 @@
-{% extends "blog/base.html" %} {%block content%} {%for post in posts%}
+{% extends "blog/base.html" %} 
+{% block content %}
+ {% for post in posts %}
+{% if user.is_authenticated %}
 <article class="media content-section">
-    <img draggable="false" class="rounded-circle article-img" src="{{post.author.profile.image.url}}" alt="Author Picture">
+    <img draggable="false" class="rounded-circle article-img" src="{{post.author.profile.image.url}}"
+        alt="Author Picture">
     <div class="media-body">
         <div class="article-metadata ">
-            <a class="mr-2 " href="# ">{{ post.author }}</a>
+            <a href="">{{ post.author }}</a>
             <small class="text-muted ">{{ post.date_posted | date:"d F, Y " }}</small>
         </div>
-        <h2><a class="article-title " href="# ">{{ post.title }}</a></h2>
+        <h2><a class="article-title " href="{% url 'post-detail' post.id %} ">{{ post.title }}</a></h2>
         <p class="article-content ">{{ post.content }}</p>
     </div>
 </article>
+{% else %}
+<article>
+    <hr>
+    <div class="media-body">
+        <h2>No Access</h2>
+        <p class="article-content ">You need to sign in to view this info.</p>
+    </div>
+</article>
+{% endif %}
 {% endfor %} {% endblock content %}
