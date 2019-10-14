@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'blog/main.css' %}"> {% if title %}
-    <title>SF Board - {{ title }}</title>
+    <title>{{ title }}</title>
     {% else %}
-    <title>SF Board</title>
+    <title>Django Blog</title>
     {% endif %}
 </head>
 
@@ -18,7 +18,7 @@
     <header class="site-header">
         <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
             <div class="container">
-                <a class="navbar-brand mr-4" href="/">Poole Parkstone Board</a>
+                <a class="navbar-brand mr-4" href="/">Blog</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
                     aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -36,6 +36,7 @@
                         {% else %}
                         <div>
                             <a class="btn btn-info btn-sm mt-1 mb-1 mr-1" href="{% url 'login' %}">Login</a>
+                            <a class="btn btn-info btn-sm mt-1 mb-1 mr-1" href="{% url 'register' %}">Register</a>
                         </div>
                         {% endif %}
 
@@ -55,10 +56,7 @@
             <div class="col-md-4">
                 <div style="text-align: center;">
                     <div class="content-section">
-
-                        <img height="30"
-                            src="https://i1.wp.com/screwfixmedia.co.uk/wp-content/uploads/dlm_uploads/2016/05/Screwfix_border_RGB_300dpi.jpg?zoom=2.625&fit=3527%2C1027&ssl=1"
-                            alt="SF LOGO">
+                      
                         {% if user.is_authenticated %}
                         <p>Welcome, <strong>{{ user.username }}.</strong></p>
 
