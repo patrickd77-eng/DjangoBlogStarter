@@ -16,3 +16,10 @@ Log in, use the CRUD functionality, develop it however you wish.
 Cheers!
 
 ### Using Python 3.7.x and Django 2.x
+
+
+## NOTE
+
+The site has full privacy (you can only see posts if logged in. only admins can make posts.)
+
+This can be removed by simply changing the {% if user.is_authenticated %} tags used in the HTML templates.
