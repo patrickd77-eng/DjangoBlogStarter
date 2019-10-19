@@ -23,3 +23,5 @@ Cheers!
 The site has full privacy (you can only see posts if logged in. only admins can make posts.)
 
 This can be removed by simply changing the {% if user.is_authenticated %} tags used in the HTML templates.
+
+[![Watch a video demo](https://gyazo.com/aa53a7529104172eff4027d24bd0e7b9)](https://gyazo.com/aa53a7529104172eff4027d24bd0e7b9)
