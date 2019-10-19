@@ -24,7 +24,7 @@ The site has full privacy (you can only see posts if logged in. only admins can 
 
 This can be removed by simply changing the {% if user.is_authenticated %} tags used in the HTML templates.
 
-![Watch a video demo](https://gyazo.com/aa53a7529104172eff4027d24bd0e7b9.png)
+![Watch a video demo](https://i.gyazo.com/aa53a7529104172eff4027d24bd0e7b9.mp4)
 
 ![Posting Comments](https://gyazo.com/6ce976b7d37114ae6452e4bdc323e541.png)
 
